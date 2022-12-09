@@ -1,6 +1,9 @@
 package contexthelper
 
-import "context"
+import (
+	"context"
+	e "github.com/pkg/errors"
+)
 
 type ContextHelper struct {
 }
@@ -9,10 +12,10 @@ func New() ContextHelper {
 	return ContextHelper{}
 }
 
-func (c ContextHelper) Get(ctx context.Context, key string) string {
+func (c ContextHelper) Get(ctx context.Context, key string) (string, error) {
 	if key == "" || ctx == nil {
-		panic("ContextHelper.Get() -> Required parameters are not passing in...")
+		return "", e.New("ContextHelper.Get() -> Required parameters are not passing in...")
 	}
 
-	return ctx.Value(key).(string)
+	return ctx.Value(key).(string), nil
 }
