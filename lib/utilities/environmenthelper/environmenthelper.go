@@ -4,10 +4,6 @@ import "os"
 
 type EnvironmentHelper struct{}
 
-func NewEnvironmentHelper() EnvironmentHelper {
-	return EnvironmentHelper{}
-}
-
 func (e EnvironmentHelper) Get(key string) string {
 	return os.Getenv(key)
 }
