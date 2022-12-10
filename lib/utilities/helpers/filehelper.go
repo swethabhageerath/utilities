@@ -36,7 +36,10 @@ func (f FileHelper) CreateFileWithCurrentDate(directoryPath string) (string, err
 
 func (f FileHelper) CreateFile(filePath string) error {
 	_, err := os.Create(filePath)
-	return err
+	if err != nil {
+		return err
+	}
+	return nil
 }
 
 func (f FileHelper) DeleteFile(filePath string) error {
