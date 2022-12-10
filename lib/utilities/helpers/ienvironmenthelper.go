@@ -1,4 +1,4 @@
-package environmenthelper
+package helpers
 
 type IEnvironmentHelper interface {
 	Get(key string) string

@@ -1,18 +1,17 @@
-package filehelpers
+package helpers
 
 import (
 	"fmt"
 	"github.com/pkg/errors"
-	"github.com/swethabhageerath/utilities/lib/utilities/environmenthelper"
 	"os"
 	"time"
 )
 
 type FileHelper struct {
-	env environmenthelper.IEnvironmentHelper
+	env EnvironmentHelper
 }
 
-func New(env environmenthelper.IEnvironmentHelper) FileHelper {
+func New(env EnvironmentHelper) FileHelper {
 	return FileHelper{
 		env: env,
 	}

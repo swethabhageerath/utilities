@@ -1,4 +1,4 @@
-package marshallinghelper
+package helpers
 
 import "encoding/json"
 
