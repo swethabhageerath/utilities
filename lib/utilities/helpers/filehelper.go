@@ -2,7 +2,6 @@ package helpers
 
 import (
 	"fmt"
-	"github.com/pkg/errors"
 	"os"
 	"time"
 )
@@ -21,11 +20,13 @@ func (f FileHelper) CreateFileWithCurrentDate(directoryPath string) (string, err
 	fileNameWithCurrentDate := fmt.Sprintf("%s.txt", time.Now().Format("2006-01-02"))
 	fullFilePath := fmt.Sprintf("%s/%s", directoryPath, fileNameWithCurrentDate)
 
-	if _, err := os.Stat(fullFilePath); errors.As(err, os.ErrNotExist) {
-		e := f.CreateFile(fullFilePath)
-		if e != nil {
-			return "", e
-		}
+	if _, err := os.Stat(fullFilePath); err == nil {
+		return fullFilePath, nil
+	}
+
+	e := f.CreateFile(fullFilePath)
+	if e != nil {
+		return "", e
 	}
 
 	return fullFilePath, nil
