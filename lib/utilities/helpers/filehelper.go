@@ -21,13 +21,11 @@ func (f FileHelper) CreateFileWithCurrentDate(directoryPath string) (string, err
 	fullFilePath := fmt.Sprintf("%s/%s", directoryPath, fileNameWithCurrentDate)
 
 	if _, err := os.Stat(fullFilePath); err == nil {
-		fmt.Println("first", err)
 		return fullFilePath, nil
 	}
-	fmt.Println("path", fullFilePath)
+
 	e := f.CreateFile(fullFilePath)
 	if e != nil {
-		fmt.Println("Second", e)
 		return "", e
 	}
 
@@ -36,6 +34,7 @@ func (f FileHelper) CreateFileWithCurrentDate(directoryPath string) (string, err
 
 func (f FileHelper) CreateFile(filePath string) error {
 	_, err := os.Create(filePath)
+	fmt.Println(err)
 	if err != nil {
 		return err
 	}
