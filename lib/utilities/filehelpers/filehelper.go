@@ -3,7 +3,7 @@ package filehelpers
 import (
 	"fmt"
 	"github.com/pkg/errors"
-	"libraries/utilities/lib/utilities/environmenthelper"
+	"github.com/swethabhageerath/utilities/lib/utilities/environmenthelper"
 	"os"
 	"time"
 )
