@@ -1,4 +1,4 @@
-package environmenthelper
+package helpers
 
 import "os"
 

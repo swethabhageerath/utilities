@@ -1,12 +1,11 @@
-package contexthelper
+package helpers
 
 import (
 	"context"
 	e "github.com/pkg/errors"
 )
 
-type ContextHelper struct {
-}
+type ContextHelper struct{}
 
 func (c ContextHelper) Get(ctx context.Context, key string) (string, error) {
 	if key == "" || ctx == nil {
