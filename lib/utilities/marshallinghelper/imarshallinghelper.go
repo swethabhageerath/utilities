@@ -1,5 +1,5 @@
 package marshallinghelper
 
 type IMarshallingHelper interface {
-	MarshallJson(obj interface{}) string
+	Marshall(obj interface{}) (string, error)
 }
